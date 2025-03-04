@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "839044060553",
+    "project_id": "swiftcart-dd09c",
+    "storage_bucket": "swiftcart-dd09c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839044060553:android:865e745f97f1f5cb18bd58",
+        "android_client_info": {
+          "package_name": "com.swiftcart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839044060553-r9ek9l8nq96vkokagqbck9scppm93vp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.swiftcart",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "839044060553-e7cnihha1rpqkdrpth12mvudjaqtbht7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtaxrtikxImgtWdlAw2aqPEgeNVXN5CbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839044060553-e7cnihha1rpqkdrpth12mvudjaqtbht7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
