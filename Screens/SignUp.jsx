@@ -1,5 +1,5 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   responsiveFontSize,
   responsiveHeight,
@@ -7,8 +7,26 @@ import {
 } from 'react-native-responsive-dimensions';
 import RoundedButton from '../Components/RoundedButton';
 import IconBtns from '../Components/IconBtns';
+import { UserContext } from '../Context/UserContext';
 
 const SignIn = ({navigation}) => {
+  const {userInfo, setUserInfo} = useContext(UserContext);
+
+  useEffect(() => {
+      if(userInfo){
+        const cleanUserInfo = {
+          uid: userInfo._user?.uid,
+          displayName: userInfo._user?.displayName,
+          email: userInfo._user?.email,
+          photoURL: userInfo._user?.photoURL,
+        };
+        console.log("C",cleanUserInfo)
+        navigation.navigate('home')
+      }else{
+        console.log("Sign in first")
+      }
+    }, [userInfo]);
+
   return (
     <View style={styles.container}>
       <Image
@@ -46,6 +64,7 @@ const SignIn = ({navigation}) => {
       <View style={styles.social}>
         <IconBtns />
       </View>
+     
     </View>
   );
 };

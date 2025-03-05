@@ -1,5 +1,5 @@
 import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import {
   responsiveFontSize,
@@ -8,16 +8,14 @@ import {
 } from 'react-native-responsive-dimensions';
 import RoundedButton from '../Components/RoundedButton';
 import IconBtns from '../Components/IconBtns';
-import { loginUser } from '../config/firebase/GoogleSignIn';
-import { UserContext } from '../Context/UserContext';
+import {loginUser} from '../config/firebase/GoogleSignIn';
+
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {userInfo,setUserInfo} = useContext(UserContext)
-   useEffect(()=>{
-      console.log("first",userInfo)
-     },[userInfo])
+  
+  
   return (
     <View style={styles.container}>
       <Text
@@ -60,7 +58,7 @@ const Login = ({navigation}) => {
         <RoundedButton
           text="Login"
           width={90}
-          onPress={() => loginUser(email,password)}
+          onPress={() => loginUser(email, password)}
         />
 
         <Text
@@ -74,7 +72,7 @@ const Login = ({navigation}) => {
       </View>
 
       <View style={styles.social}>
-        <IconBtns/>
+        <IconBtns />
         <TouchableOpacity
           onPress={() => navigation.navigate('signup')}
           style={{fontSize: responsiveFontSize(1)}}>

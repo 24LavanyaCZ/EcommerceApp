@@ -1,10 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import React, { useContext } from 'react'
+import { UserContext } from '../Context/UserContext'
+import  Header  from '../Common/Header'
+import BottomTab from '../Common/BottomTab'
 
 const Home = () => {
+  const {userInfo, setUserInfo} = useContext(UserContext)
   return (
-   <View style={styles.container}>
-        <Text>Home</Text>
+    <View style={styles.container}>
+    <Header leftIcon={require('../assets/images/menu.png')} rightIcon={require('../assets/images/bag.png')}/>
+    
     </View>
   )
 }
