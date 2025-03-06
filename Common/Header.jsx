@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Image, StyleSheet, Platform} from 'react-native';
 import React, { useState } from 'react';
 import {
   responsiveFontSize,
@@ -7,21 +7,16 @@ import {
 } from 'react-native-responsive-dimensions';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import Home from '../Screens/Home'
-import Search from '../Screens/Search'
-import Wishlist from '../Screens/Wishlist'
-import Notification from '../Screens/Notification'
-import Profile from '../Screens/Profile'
-// import Ion from 'react-native-vector-icons/Ionicons';
-// import Icon from 'react-native-vector-icons/MaterialIcons';
+import ff from '../Services/fontFamily'
+
+
 
 const Header = ({leftIcon, rightIcon, onClickLeftIcon, onClickRightIcon}) => {
-    const [selectedPage, setSelectedPage] = useState(0)
-    const navigation = useNavigation()
+   
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
       <View style={styles.header}>
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={()=>onClickLeftIcon()}>
         <Image
           source={leftIcon}
           style={{width: responsiveWidth(5), height: responsiveHeight(3)}}
@@ -39,55 +34,6 @@ const Header = ({leftIcon, rightIcon, onClickLeftIcon, onClickRightIcon}) => {
         />
       </TouchableOpacity>
       </View>
-
-        {selectedPage === 0 ? (
-         <Text>Home</Text>
-        ) : selectedPage === 1 ? (
-          <Search />
-        ) : selectedPage === 2 ? (
-          <Wishlist />
-        ) : selectedPage === 3 ? (
-          <Notification />
-        ) : selectedPage === 4 ? (
-          <Profile />
-        ) : null}
-      <View style={styles.bottomTab}>
-        <TouchableOpacity style={styles.btn} onPress={() => setSelectedPage(0)}>
-          <Image
-            source={require('../assets/images/home.png')}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => setSelectedPage(1)}>
-          <Image
-            source={require('../assets/images/search.png')}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => setSelectedPage(2)}>
-          <Image
-            source={require('../assets/images/like.png')}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => setSelectedPage(3)}>
-          <Image
-            source={require('../assets/images/notification.png')}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => setSelectedPage(4)}>
-          <Image
-            source={require('../assets/images/user.png')}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-      </View>
     </SafeAreaView>
   );
 };
@@ -95,9 +41,6 @@ const Header = ({leftIcon, rightIcon, onClickLeftIcon, onClickRightIcon}) => {
 export default Header;
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1
-  },
   header: {
     width: responsiveWidth(100),
     backgroundColor: '#fff',
@@ -105,7 +48,6 @@ const styles = StyleSheet.create({
     paddingVertical: responsiveHeight(2),
     paddingHorizontal: responsiveWidth(2),
     justifyContent: 'space-between',
-    borderBottomWidth: 1,
     alignItems: 'center',
   },
   btn: {
@@ -113,6 +55,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontSize: responsiveFontSize(3),
+    fontFamily: ff.mSb
   },
   bottomTab: {
 

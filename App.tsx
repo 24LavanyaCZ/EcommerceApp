@@ -5,16 +5,19 @@ import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 import AppNavigator from './Navigation/AppNavigator';
 import {NavigationContainer} from '@react-navigation/native';
-import { UserProvider } from './Context/UserContext';
+import {UserProvider} from './Context/UserContext';
+import {ProductProvider} from './Context/ProductsContext';
 
 const App = () => {
   return (
     <SafeAreaProvider style={{flex: 1}}>
       <SafeAreaView style={{flex: 1}}>
         <NavigationContainer>
-          <UserProvider>
-          <AppNavigator />
-          </UserProvider>
+          <ProductProvider>
+            <UserProvider>
+              <AppNavigator />
+            </UserProvider>
+          </ProductProvider>
         </NavigationContainer>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -22,4 +25,3 @@ const App = () => {
 };
 
 export default App;
-
